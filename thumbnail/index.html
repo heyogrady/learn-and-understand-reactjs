@@ -1,0 +1,49 @@
+<head>
+  <script src="https://fb.me/react-0.13.3.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+  </div>
+</body>
+
+<script type="text/jsx">
+  var Badge = React.createClass({
+    render: function() {
+      this.props // {}
+
+      return <button className="btn btn-primary" type="button">
+        {this.props.title} <span className="badge">{this.props.number}</span>
+      </button>
+    }
+  });
+
+  var Thumbnail = React.createClass({
+    render: function() {
+      return <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src={this.props.imageURL} alt="..." />
+          <div class="caption">
+            <h3>{this.props.header}</h3>
+            <p>{this.props.description}</p>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          </div>
+        </div>
+      </div>
+    }
+  });
+
+  var options = {
+    title: "Sent",
+    number: 12,
+    header: "Learn React",
+    description: "React is a fantastic new front end library for rendering webpages. React is a fantastic new front end library for rendering webpages.",
+    imageURL: "https://raw.githubusercontent.com/wiki/facebook/react/react-logo-1000-transparent.png"
+  };
+
+  var element = React.createElement(Thumbnail, options);
+
+  React.render(element, document.querySelector(".container"));
+</script>
